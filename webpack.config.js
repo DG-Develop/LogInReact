@@ -12,6 +12,10 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx'],
+        alias: {
+            '@static': path.resolve(__dirname, 'src/assets/static'),
+            '@styleContainer': path.resolve(__dirname, 'src/assets/containers')
+        }
     },
     module: {
         rules: [
