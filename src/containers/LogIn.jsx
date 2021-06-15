@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "firebase/auth";
 import { useFirebaseApp } from "reactfire";
-import firebaseDb from "firebase";
+import firebaseDb from "firebase/app";
 
 import "@styleContainer/LogIn.scss";
 import facebookIcon from "@static/facebook.svg";

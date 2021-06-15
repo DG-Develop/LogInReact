@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import "firebase/auth";
 import 'firebase/firestore'
 import { useFirebaseApp } from "reactfire";
-import firebaseDb from "firebase";
+import firebaseDb from "firebase/app";
 
 import "@styleContainer/Register.scss";
 import facebookIcon from "@static/facebook.svg";

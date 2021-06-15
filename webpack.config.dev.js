@@ -5,7 +5,7 @@ const webpack = require('webpack')
 
 module.exports = {
     entry: './src/index.js',
-    mode: 'development',
+    //mode: 'development',
     devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -26,7 +26,7 @@ module.exports = {
         open: true,
         port: 3006,
         historyApiFallback: true,
-        mimeTypes: { 'text/html': ['phtml'] },
+        //mimeTypes: { 'text/html': ['phtml'] },
     },
     module: {
         rules: [

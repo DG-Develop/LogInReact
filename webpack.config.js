@@ -7,11 +7,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
-    mode: 'production',
+   // mode: 'production',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name]-[fullhash].js',
-        publicPath: '/'
+        filename: 'js/[name]-[contenthash].js',
+        //publicPath: '/'
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -25,7 +25,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use:{
+                use: {
                     loader: 'babel-loader'
                 }
             },
@@ -37,8 +37,8 @@ module.exports = {
             },
             {
                 test: /\.(s*)css$/,
-                use:[
-                    { loader: MiniCssExtractPlugin.loader },
+                use: [
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
@@ -48,7 +48,7 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
-                        options:{
+                        options: {
                             name: 'assets/[name]-[fullhash].[ext]'
                         }
                     }
@@ -56,13 +56,14 @@ module.exports = {
             }
         ]
     },
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
+            inject: true,
             template: './public/index.html',
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: 'assets/[name]-[fullhash].css'
+            filename: 'assets/[name]-[fullhash].css',
         }),
         new CleanWebpackPlugin()
     ],
@@ -72,5 +73,8 @@ module.exports = {
             new CssMinimizerPlugin(),
             new TerserPlugin()
         ]
+    },
+    performance: {
+        hints: false
     }
 }
