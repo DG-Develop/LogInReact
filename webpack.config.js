@@ -7,11 +7,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
-   // mode: 'production',
+    // mode: 'production',
+    devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name]-[contenthash].js',
-        //publicPath: '/'
+        publicPath: '/dist/',
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -19,6 +20,11 @@ module.exports = {
             '@static': path.resolve(__dirname, 'src/assets/static'),
             '@styleContainer': path.resolve(__dirname, 'src/assets/containers')
         }
+    },
+    devServer:{
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        historyApiFallback: true
     },
     module: {
         rules: [
@@ -49,7 +55,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'assets/[name]-[fullhash].[ext]'
+                            name: 'assets/static/[name]-[contenthash].[ext]'
                         }
                     }
                 ]
@@ -58,12 +64,13 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            inject: true,
+           // inject: true,
+           hash: true,
             template: './public/index.html',
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: 'assets/[name]-[fullhash].css',
+            filename: 'assets/[name]-[contenthash].css',
         }),
         new CleanWebpackPlugin()
     ],

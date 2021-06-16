@@ -6,7 +6,8 @@ const webpack = require('webpack')
 module.exports = {
     entry: './src/index.js',
     //mode: 'development',
-    devtool: 'source-map',
+    //devtool: 'source-map',
+    devtool: 'cheap-module-eval-source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js',
