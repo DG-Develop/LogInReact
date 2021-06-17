@@ -4,10 +4,10 @@ import "firebase/auth";
 import { useFirebaseApp } from "reactfire";
 import firebaseDb from "firebase/app";
 
-import "@styleContainer/LogIn.scss";
-import facebookIcon from "@static/facebook.svg";
-import twitterIcon from "@static/twitter.svg";
-import googleIcon from "@static/google.svg";
+import "../assets/containers/LogIn.scss";
+import facebookIcon from "../assets/static/facebook.svg";
+import twitterIcon from "../assets/static/twitter.svg";
+import googleIcon from "../assets/static/google.svg";
 import socialMediaAuth from "../../auth/auth";
 
 const LogIn = () => {

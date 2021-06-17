@@ -7,10 +7,9 @@ import { FirebaseAppProvider } from "reactfire";
 import { firebaseConfig } from "../firebase-config";
 import App from "./routes/App";
 
-
 const history = new createBrowserHistory()
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <Suspense fallback={"Conectado la app..."}>
       <Router history={history}>
