@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production --config ./webpack.config.js",
-    "start:dev:serve": "webpack serve --mode development --config ./webpack.config.dev.js",
     "start": "node server/index.js",
+    "start:dev:serve": "webpack serve --mode development --config ./webpack.config.dev.js",
     "start:dev": "nodemon src/server/index"
   },
   "keywords": [
@@ -18,8 +18,12 @@
   "author": "David Antonio Gomez Pacheco",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "7.14.5",
     "@babel/polyfill": "7.12.1",
     "@babel/register": "7.14.5",
+    "@babel/plugin-transform-runtime": "7.14.5",
+    "@babel/preset-env": "7.14.5",
+    "@babel/preset-react": "7.14.5",
     "asset-require-hook": "1.2.0",
     "axios": "0.21.1",
     "cookie-parser": "1.4.5",
@@ -40,10 +44,6 @@
     "webpack-hot-middleware": "2.25.0"
   },
   "devDependencies": {
-    "@babel/core": "7.14.5",
-    "@babel/plugin-transform-runtime": "7.14.5",
-    "@babel/preset-env": "7.14.5",
-    "@babel/preset-react": "7.14.5",
     "babel-eslint": "10.1.0",
     "babel-loader": "8.2.2",
     "clean-webpack-plugin": "4.0.0-alpha.0",
